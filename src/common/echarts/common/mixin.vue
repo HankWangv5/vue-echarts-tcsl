@@ -13,7 +13,8 @@ export default {
     chartData: Object,
     oneOption: Object,
     drillInfo: Object,
-    chartInfo: Object
+    chartInfo: Object,
+    theme:String
   },
   mounted () {
     this.initChart();

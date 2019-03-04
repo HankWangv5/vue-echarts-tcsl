@@ -1,6 +1,6 @@
 <template>
     <div :id="id" class="number">
-        <div v-for="(number, $index) in numbers" :key="$index" :class="numberClass">{{number}}</div>
+        <div v-for="(number, $index) in numbers" :key="$index" :class="numberClass" :style="{fontSize: parseInt(fontSize) + 'px'}">{{number}}</div>
     </div>
 </template>
 
@@ -18,11 +18,14 @@ export default {
   },
   data () {
     return {
-      numbers: []
+      numbers: [],
+      fontSize: 12,
+      medias: [100, 200, 300, 400, 500, 900, 1100, 1300, 1500, 1700, 1900, 2100]
     };
   },
   mounted () {
     this.initChart();
+    window.addEventListener('resize', this.resize);
   },
   methods: {
     initChart () {
@@ -45,6 +48,9 @@ export default {
           clearInterval(interval);
         }
       }, 100);
+      this.$nextTick(() => {
+        this.resize();
+      });
     },
     getRandomNum (numbers, decimalCount) {
       let integerCount;
@@ -73,7 +79,17 @@ export default {
       }
       return parseFloat(temp).toString();
     },
-    resize () {}
+    resize () {
+      const width = document.getElementById(this.id).offsetWidth;
+      console.log(width, this.id);
+      // const height = document.getElementById(this.id).offsetHeight;
+      for (let $index = 0; $index < this.medias.length; $index++) {
+        if (width < this.medias[$index]) {
+          this.fontSize = ($index * 12) + 'px';
+          break;
+        }
+      }
+    }
   },
   watch: {
     theme () { // 监听主题变化,编辑页面切换主题重新渲染
@@ -91,82 +107,34 @@ export default {
     justify-content: center;
     align-items: center;
     font-weight: 900;
-    $populor-color: #FFB617;
-    > div {
-        position: relative;
-        padding: 6px;
-        margin: 2px;
-        border: $populor-color solid 1px;
-        // border-radius: 2px;
-        height: 82px;
-        width: 67px;
-        vertical-align: middle;
-        text-align: center;
-        font-size: 57px;
-        -webkit-background-clip: text;
-        // color: transparent;
-        $trangle-distance: -4px;
-        @mixin Pseudo-classes {
-            box-sizing: content-box;
-            width: 5px;
-            height: 5px;
-            background-color: #191f3a;
-            position: absolute;
-            top: 38px;
-            border: 1px solid #FFB617;
-            transform: rotate(45deg);
-            display: block;
-            content: '';
-        }
-        &:before {
-            right: $trangle-distance;
-            @include Pseudo-classes;
-            border-top: 1px solid transparent;
-            border-right: 1px solid transparent;
-            z-index: 12;
-        }
-        &:after {
-            left: $trangle-distance;
-            @include Pseudo-classes;
-            border-bottom: 1px solid transparent;
-            border-left: 1px solid transparent;
-            z-index: 10;
-        }
-    }
 }
-@mixin number-class($border-color, $font-color, $transation-color){
-    border: $border-color solid 1px !important;
-    &:before{
-        border: 1px solid $border-color !important;
-        border-top: 1px solid transparent !important;
-        border-right: 1px solid transparent !important;
-    }
-    &:after {
-        border: 1px solid $border-color !important;
-        border-bottom: 1px solid transparent !important;
-        border-left: 1px solid transparent !important;
-    }
+@mixin number-class($border-image, $font-color){
+    background-image: url($border-image);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: 100% 100%;
+    padding:5px;
+    margin:0 3px;
+    color: $font-color;
 }
 .number-orange{
-    $border-color: #FFB617;
     $font-color: #FFB617;
     $transation-color: #FF612A;
-    @include number-class(#FFB617, #FFB617, #FF612A);
-    background: linear-gradient(0deg, #FF612A 0%, #FFB617 100%);
-    color: transparent;
+    $border-image: '~@/assets/static/chart/number_orange.png';
+    @include number-class($border-image, $font-color);
+    //background: linear-gradient(0deg, #FF612A 0%, #FFB617 100%);
+    //color: $font-color;
 }
 .number-blue{
-    $border-color: #3F5FFC;
     $font-color: #65E3FF;
     $transation-color: #FF612A;
-    @include number-class(#3F5FFC, #65E3FF, #FF612A);
-    color: $font-color;
+    $border-image: '~@/assets/static/chart/number_blue.png';
+    @include number-class($border-image, $font-color);
 }
 .number-purple{
-    $border-color: #FF3795;
     $font-color: #FFFFFF;
     $transation-color: #FF612A;
-    @include number-class(#FF3795, #FFFFFF, #FF612A);
-    color: $font-color;
+    $border-image: '~@/assets/static/chart/number_purple.png';
+    @include number-class($border-image, $font-color);
 }
 </style>

@@ -44,18 +44,15 @@ export default {
     window.addEventListener('resize', this.resize);
   },
   methods: {
-    setLayout (index) {
-      this.as = {
-        title: (index * 12) + 'px',
-        num: (index * 22) + 'px'
-      };
-    },
     resize () {
       const width = document.getElementById(this.id).offsetWidth;
       // const height = document.getElementById(this.id).offsetHeight;
       for (let $index = 0; $index < this.medias.length; $index++) {
         if (width < this.medias[$index]) {
-          this.setLayout($index);
+          this.as = {
+            title: ($index * 12) + 'px',
+            num: ($index * 22) + 'px'
+          };
           break;
         }
       }

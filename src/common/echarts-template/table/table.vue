@@ -88,7 +88,7 @@ export default {
   .el-table tr {
     height: 50px;
   }
-  .el-table::before {
+  .el-table, .el-table::before {
     background-color: transparent;
   }
 }
@@ -111,10 +111,10 @@ export default {
   }
 }
 .table-orange{
-    $headbg-color: #3D2E14;
-    $trbg-color: #0D0A0E;
-    $strip-color: #100D10;
-    @include table-class(#3D2E14, #0D0A0E, #100D10);
+    $headbg-color: rgba(255, 173, 31, 0.1);
+    $trbg-color: rgba(0,0,0,0.4);
+    $strip-color: rgba(31,21,13,0.5);
+    @include table-class(rgba(255, 173, 31, 0.1), rgba(0,0,0,0.4), rgba(31,21,13,0.5));
 }
 .table-blue{
     $headbg-color: #222B61;

@@ -9,7 +9,6 @@
 import white from './theme.json';
 import black from './black.json';
 import * as echarts from 'echarts/src/echarts';
-import store from '@/vuex/store';
 import {LEGEND_DISPLAY, DATAZOOM_AXIS} from '@/common/chartConfigType';
 // import 'zrender/src/svg/svg';
 export function fmoney (s, n = 2, f) {
@@ -36,12 +35,12 @@ export function addingUnit (val, unit) {
   return new Number(nVal).toFixed(6);//eslint-disable-line
 };
 
-export function initChart (id, option) {
+export function initChart (id, option,theme) {
   const map = new Map([
     ['purple', white],
     ['purpleNight', black]
   ]);
-  const dcChart = echarts.init(document.getElementById(id), map.get(store.state.element.theme), {renderer: 'svg'});
+  const dcChart = echarts.init(document.getElementById(id), map.get(theme), {renderer: 'svg'});
   let ts = option.baseOption.textStyle;
   if (ts) {
     ts.fontFamily = 'Roboto';

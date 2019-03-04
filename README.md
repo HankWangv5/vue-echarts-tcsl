@@ -1,18 +1,11 @@
 # vue-echarts-tcsl
 
-> vue-echarts-tcsl
+> 基于echarts4.X的图表组件库 vue-echarts-tcsl
+
 
 ## Build Setup
 
 ``` bash
-# install dependencies
-npm install
+# install component
+npm install -g vue-echarts-tcsl
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).

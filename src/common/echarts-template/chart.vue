@@ -1,40 +1,58 @@
 <template>
-    <div  class="farther" ref="parent" :class="parentClass">
-        {{title}}
-        <component :chartType="chartType" ref="chartTemplate" :is="'dc-chart-template-' + chartType" :theme="theme"
-                   :id="specialId" :chartData="chartData"  v-if="isShowChart && !loading" style="height:calc(100% - 5px);">
-        </component>
-        <div v-show="!isShowChart && !loading" class="child" v-text="chartMsg"></div>
+    <div class="farther" :class="parentClass" v-loading="loading">
+        <article>{{title}}</article>
+        <div style="height:calc(100% - 15px);">
+            <component :chartType="chartType" ref="chartTemplate" :is="'dc-chart-template-' + chartType" :theme="theme"
+                       :id="specialId" :chartData="chartData"  v-show="isShowChart" style="height:100%;">
+            </component>
+            <div v-show="!isShowChart" class="child" v-text="chartMsg"></div>
+        </div>
     </div>
 
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+//import {mapGetters} from 'vuex';
 export default {
+  name:'v-charts',
   data () {
     return {
-      loading: false,
+      loading: true,
       isShowChart: true,
       chart: '',
       chartMsg: '当前图表无数据'
     };
   },
   computed: {
-    ...mapGetters({theme: 'bigScreenTheme'}),
     parentClass () {
       return `chart-parent-${this.theme}`;
     }
   },
   props: {
-    chartType: String,
+    chartType: {
+      type: String,
+      required: true
+    },
     chartData: Object,
-    title: String,
-    specialId: {
+    theme:{
       default: function () {
-        return new Date().getTime().toString();
+        return 'purple';
       }
+    },
+    title: {
+      default: function () {
+        return '示例';
+      }
+    },
+    specialId: {
+      type: String,
+      required: true
     }
+  },
+  mounted () {
+    setTimeout(_ => {
+      this.loaderStop();
+    }, 1000);
   },
   methods: {
     loaderStop () {
@@ -55,7 +73,9 @@ export default {
       }
     },
     resize () {
-      this.$refs.chartTemplate.resize();
+      if (this.$refs.chartTemplate.resize) {
+        this.$refs.chartTemplate.resize();
+      }
     }
   },
   components: { // 图表组件注册机
@@ -98,18 +118,24 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+    .farther {
+        .el-loading-mask{
+            background-color: transparent;
+        }
+    }
+</style>
 <style lang="scss" scoped>
     .farther {
         width: 100%;
         height: 100%;
-        position: relative;
-        display: inline-block;
     }
     @mixin chart-parent($font-color, $border-image){
         font-size:18px;
         font-family:MicrosoftYaHei;
         font-weight:400;
         color: $font-color;
+        overflow: hidden; //有滚动条，加上试试
         border:15px solid transparent;
         border-image: url($border-image) 30 30 stretch;
         -moz-border-image:url($border-image) 30 30 stretch;/* Old Firefox */
@@ -134,7 +160,7 @@ export default {
         @include chart-parent($font-color, '');
         > div{
             margin-top: 5px;
-            padding-top: 10px;
+            padding-top: 8px;
             border-top: $border-color 1px solid;
             background:rgba(80,102,244, .1);
             background-clip: content-box;

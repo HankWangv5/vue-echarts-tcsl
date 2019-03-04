@@ -13,7 +13,9 @@ export default {
     theme: String
   },
   mounted () {
-    this.initChart();
+    setTimeout(() => {
+      this.initChart();
+    }, 1000);
     window.addEventListener('resize', this.resize);
   },
   methods: {
@@ -22,7 +24,7 @@ export default {
       this.setOption(dcChart, this.chartType);
     },
     async setOption (dcChart, chartType) {
-      const {Option} = await import(/* webpackChunkName: "[request]" */ `./${chartType}/${chartType}-${this.theme}.js`);
+      const {Option} = await require(/* webpackChunkName: "[request]" */ `./${chartType}/${chartType}-${this.theme}.js`);
       dcChart.setOption(Option, true);
     },
     resize () {
