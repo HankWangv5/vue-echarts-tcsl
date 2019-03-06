@@ -1,13 +1,21 @@
 {
   "name": "vue-echarts-tcsl",
   "description": "vue-echarts-tcsl",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Brain",
   "license": "MIT",
   "private": false,
   "directories": {
     "dist": "dist"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HankWangv5/vue-echarts-tcsl.git"
+  },
+  "bugs":{
+    "url": "https://github.com/HankWangv5/vue-echarts-tcsl/issues"
+  },
+  "homepage": "https://github.com/HankWangv5/vue-echarts-tcsl",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
