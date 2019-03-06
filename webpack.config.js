@@ -1,8 +1,9 @@
 var path = require('path')
-var webpack = require('webpack')
+var webpack = require('webpack');
 
+const NODE_ENV = process.env.NODE_ENV;
 module.exports = {
-  entry: './src/main.js',
+  entry: NODE_ENV == 'development' ? './src/main.js' : './src/myPlugin/echarts-template/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -87,7 +88,10 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  optimization: {
+    minimizer: []
+  }
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -97,12 +101,6 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
       }
     }),
     new webpack.LoaderOptionsPlugin({

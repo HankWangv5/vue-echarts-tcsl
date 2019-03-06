@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/HankWangv5/vue-echarts-tcsl.git"
   },
-  "bugs":{
+  "bugs": {
     "url": "https://github.com/HankWangv5/vue-echarts-tcsl/issues"
   },
   "homepage": "https://github.com/HankWangv5/vue-echarts-tcsl",
@@ -21,9 +21,9 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "vue": "^2.5.11",
     "echarts": "^4.1.0",
-    "echarts-liquidfill": "^2.0.2"
+    "echarts-liquidfill": "^2.0.2",
+    "vue": "^2.6.8"
   },
   "browserslist": [
     "> 1%",
@@ -31,18 +31,22 @@
     "not ie <= 8"
   ],
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-stage-3": "^6.24.1",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/preset-env": "^7.3.4",
+    "babel-loader": "^8.0.5",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
-    "vue-loader": "^13.0.5",
-    "vue-template-compiler": "^2.4.4",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1"
+    "vue-loader": "^14.2.4",
+    "vue-template-compiler": "^2.6.8",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
   }
 }
