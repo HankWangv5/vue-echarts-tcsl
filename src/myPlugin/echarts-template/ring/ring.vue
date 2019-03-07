@@ -4,7 +4,7 @@
 
 <script>
 // import * as echarts from 'echarts/src/echarts';
-import 'echarts/lib/chart/ring';
+import 'echarts/lib/chart/pie';
 import minXinChart from '../mixin';
 import {Option as ringblue} from './ring-blue.js';
 import {Option as ringorange} from './ring-orange.js';
