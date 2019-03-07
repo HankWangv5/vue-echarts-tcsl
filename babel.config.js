@@ -16,6 +16,7 @@ module.exports = {
         "loose": false
       }
     ],
-    "@babel/plugin-proposal-json-strings"
+    "@babel/plugin-proposal-json-strings",
+    "@babel/transform-runtime"
   ]
 };

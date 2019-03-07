@@ -29,8 +29,14 @@ export default {
         console.trace(`'${this.id}' dom unRendered`);
       }
     },
+    // tcsl内部调用使用异步加载主题文件
+    /* async setOption (dcChart, chartType) {
+      const {Option} = await import(/!* webpackChunkName: "[request]" *!/ `./${chartType}/${chartType}-${this.theme}.js`);
+      this.resolveData(Option);
+      dcChart.setOption(Option, true);
+    }, */
     async setOption (dcChart, chartType) {
-      const {Option} = await import(/* webpackChunkName: "[request]" */ `./${chartType}/${chartType}-${this.theme}.js`);
+      const {Option} = await import(`./${chartType}/${chartType}-${this.theme}.js`);
       this.resolveData(Option);
       dcChart.setOption(Option, true);
     },

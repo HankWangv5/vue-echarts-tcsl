@@ -90,7 +90,7 @@ module.exports = {
   },
   devtool: '#eval-source-map',
   optimization: {
-    minimizer: []
+    // minimizer: []
   }
 }
 

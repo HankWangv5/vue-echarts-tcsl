@@ -12,6 +12,18 @@
 </template>
 
 <script>
+import pie from '@/myPlugin/echarts-template/pie/pie.vue'; // 饼
+import ring from '@/myPlugin/echarts-template/ring/ring.vue'; // 环
+import gauge from '@/myPlugin/echarts-template/gauge/gauge.vue'; // 计量图
+import line from '@/myPlugin/echarts-template/line/line.vue'; // 线
+import number from '@/myPlugin/echarts-template/number/number.vue'; // 翻牌器
+import column from '@/myPlugin/echarts-template/column/column.vue'; // 柱
+import stack from '@/myPlugin/echarts-template/stack/stack.vue'; // 堆积
+import bars from '@/myPlugin/echarts-template/bars/bars.vue'; // 条形图
+import area from '@/myPlugin/echarts-template/area/area.vue'; // 面积
+import target from '@/myPlugin/echarts-template/target/target.vue'; // 指标卡
+import table from '@/myPlugin/echarts-template/table/table.vue'; // 表
+import map from '@/myPlugin/echarts-template/map/map.vue'; // 地图
 export default {
   name: 'VueEchartsTcsl',
   data () {
@@ -78,42 +90,18 @@ export default {
     }
   },
   components: { // 图表组件注册机
-    'dc-chart-template-pie': resolve => { // 饼
-      require(['@/myPlugin/echarts-template/pie/pie.vue'], resolve);
-    },
-    'dc-chart-template-ring': resolve => { // 环
-      require(['@/myPlugin/echarts-template/ring/ring.vue'], resolve);
-    },
-    'dc-chart-template-gauge': resolve => { // 计量图
-      require(['@/myPlugin/echarts-template/gauge/gauge.vue'], resolve);
-    },
-    'dc-chart-template-line': resolve => { // 线
-      require(['@/myPlugin/echarts-template/line/line.vue'], resolve);
-    },
-    'dc-chart-template-number': resolve => { // 翻牌器
-      require(['@/myPlugin/echarts-template/number/number.vue'], resolve);
-    },
-    'dc-chart-template-column': resolve => { // 柱
-      require(['@/myPlugin/echarts-template/column/column.vue'], resolve);
-    },
-    'dc-chart-template-stack': resolve => { // 堆积
-      require(['@/myPlugin/echarts-template/stack/stack.vue'], resolve);
-    },
-    'dc-chart-template-bars': resolve => { // 条形图
-      require(['@/myPlugin/echarts-template/bars/bars.vue'], resolve);
-    },
-    'dc-chart-template-area': resolve => { // 面积
-      require(['@/myPlugin/echarts-template/area/area.vue'], resolve);
-    },
-    'dc-chart-template-target': resolve => { // 指标卡
-      require(['@/myPlugin/echarts-template/target/target.vue'], resolve);
-    },
-    'dc-chart-template-table': resolve => { // 表
-      require(['@/myPlugin/echarts-template/table/table.vue'], resolve);
-    },
-    'dc-chart-template-map': resolve => { // 地图
-      require(['@/myPlugin/echarts-template/map/map.vue'], resolve);
-    }
+    'dc-chart-template-pie': pie, // 饼
+    'dc-chart-template-ring': ring, // 环
+    'dc-chart-template-gauge': gauge, // 计量图
+    'dc-chart-template-line': line,// 线
+    'dc-chart-template-number': number, // 翻牌器
+    'dc-chart-template-column': column, // 柱
+    'dc-chart-template-stack': stack, // 堆积
+    'dc-chart-template-bars': bars, // 条形图
+    'dc-chart-template-area': area, // 面积
+    'dc-chart-template-target': target, // 指标卡
+    'dc-chart-template-table': table, // 表
+    'dc-chart-template-map': map // 地图
   }
 };
 </script>

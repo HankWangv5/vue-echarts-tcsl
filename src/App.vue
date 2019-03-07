@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <v-charts specialId="aaa" ref="chart" chartType="pie" theme='purple'></v-charts>
+    <Vue-Echarts-Tcsl specialId="aaa" chartType="pie" theme='purple' title="test1"></Vue-Echarts-Tcsl>
+    <Vue-Echarts-Tcsl specialId="3"  chartType="column" theme='purple' title="test2"></Vue-Echarts-Tcsl>
+    <Vue-Echarts-Tcsl specialId="4" chartType="target" theme='purple' title="test3"></Vue-Echarts-Tcsl>
   </div>
 </template>
 
@@ -20,26 +22,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
