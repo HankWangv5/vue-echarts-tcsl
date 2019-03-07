@@ -6,6 +6,9 @@
 import 'echarts/lib/chart/map';
 import 'echarts/map/js/china';
 import minXinChart from '../mixin';
+import {Option as mapblue} from './map-blue.js';
+import {Option as maporange} from './map-orange.js';
+import {Option as mappurple}  from './map-purple.js';
 export default {
   mixins: [minXinChart],
   props: {
@@ -48,6 +51,11 @@ export default {
   data () {
     return {
     };
+  },
+  created () {
+    this.mapblue = mapblue;
+    this.maporange = maporange;
+    this.mappurple = mappurple;
   },
   methods: {
     resolveData (Option) {

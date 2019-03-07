@@ -5,6 +5,9 @@
 <script>
 import 'echarts/lib/chart/bar';
 import minXinChart from '../mixin';
+import {Option as stackblue} from './stack-blue.js';
+import {Option as stackorange} from './stack-orange.js';
+import {Option as stackpurple}  from './stack-purple.js';
 export default {
   mixins: [minXinChart],
   props: {
@@ -23,6 +26,11 @@ export default {
   data () {
     return {
     };
+  },
+  created () {
+    this.stackblue = stackblue;
+    this.stackorange = stackorange;
+    this.stackpurple = stackpurple;
   },
   methods: {
     resolveData (Option) {

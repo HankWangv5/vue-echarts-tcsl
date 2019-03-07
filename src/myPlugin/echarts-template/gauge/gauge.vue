@@ -8,11 +8,19 @@ import 'echarts/lib/chart/pie';
 import 'echarts/lib/chart/gauge';
 import 'echarts/lib/component/markPoint';
 import minXinChart from '../mixin';
+import {Option as gaugeblue} from './gauge-blue.js';
+import {Option as gaugeorange} from './gauge-orange.js';
+import {Option as gaugepurple}  from './gauge-purple.js';
 export default {
   mixins: [minXinChart],
   data () {
     return {
     };
+  },
+  created () {
+    this.gaugeblue = gaugeblue;
+    this.gaugeorange = gaugeorange;
+    this.gaugepurple = gaugepurple;
   },
   methods: {
     resolveData (Option) {
