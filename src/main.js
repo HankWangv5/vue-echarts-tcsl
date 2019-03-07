@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueEcharts from './common/echarts-template/index.js'
-Vue.use(VueEcharts);
-
+import vEchartsTcsl from './myPlugin/echarts-template/index.js'
+import element from 'element-ui';
+Vue.use(vEchartsTcsl);
+Vue.use(element);
 new Vue({
   el: '#app',
   render: h => h(App)
