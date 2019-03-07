@@ -5,6 +5,9 @@
 <script>
 import 'echarts/lib/chart/pie';
 import minXinChart from '../mixin';
+import {Option as pieblue} from './pie-blue.js';
+import {Option as pieorange} from './pie-orange.js';
+import {Option as piepurple}  from './pie-purple.js';
 export default {
   mixins: [minXinChart],
   props: {
@@ -25,6 +28,11 @@ export default {
   data () {
     return {
     };
+  },
+  created () {
+    this.pieblue = pieblue;
+    this.pieorange = pieorange;
+    this.piepurple = piepurple;
   },
   methods: {
     resolveData (Option) {

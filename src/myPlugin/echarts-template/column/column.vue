@@ -5,6 +5,9 @@
 <script>
 import 'echarts/lib/chart/bar';
 import minXinChart from '../mixin';
+import {Option as columnblue} from './column-blue.js';
+import {Option as columnorange} from './column-orange.js';
+import {Option as columnpurple}  from './column-purple.js';
 export default {
   mixins: [minXinChart],
   props: {
@@ -25,6 +28,11 @@ export default {
   data () {
     return {
     };
+  },
+   created () {
+    this.columnblue = columnblue;
+    this.columnorange = columnorange;
+    this.columnpurple = columnpurple;
   },
   methods: {
     resolveData (Option) {

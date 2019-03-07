@@ -4,8 +4,11 @@
 
 <script>
 // import * as echarts from 'echarts/src/echarts';
-import 'echarts/lib/chart/pie';
+import 'echarts/lib/chart/ring';
 import minXinChart from '../mixin';
+import {Option as ringblue} from './ring-blue.js';
+import {Option as ringorange} from './ring-orange.js';
+import {Option as ringpurple}  from './ring-purple.js';
 export default {
   mixins: [minXinChart],
   props: {
@@ -23,6 +26,11 @@ export default {
   data () {
     return {
     };
+  },
+  created () {
+    this.ringblue = ringblue;
+    this.ringorange = ringorange;
+    this.ringpurple = ringpurple;
   },
   methods: {
     resolveData (Option) {
