@@ -35,10 +35,11 @@ export default {
       this.resolveData(Option);
       dcChart.setOption(Option, true);
     }, */
-    async setOption (dcChart, chartType) {
-      const {Option} = await import(`./${chartType}/${chartType}-${this.theme}.js`);
-      this.resolveData(Option);
-      dcChart.setOption(Option, true);
+    setOption (dcChart, chartType) {
+      // console.log(`${chartType}${this.theme}`, this[`${chartType}${this.theme}`]);
+      // const {Option} = await import(`./${chartType}/${chartType}-${this.theme}.js`);
+      this.resolveData(this[`${chartType}${this.theme}`]);
+      dcChart.setOption(this[`${chartType}${this.theme}`]);
     },
     resize () {
       try {

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <Vue-Echarts-Tcsl specialId="aaa" chartType="pie" theme='purple' title="test1"></Vue-Echarts-Tcsl>
-    <Vue-Echarts-Tcsl specialId="3"  chartType="column" theme='purple' title="test2"></Vue-Echarts-Tcsl>
+    <Vue-Echarts-Tcsl specialId="3"  chartType="area" theme='purple' title="test2"></Vue-Echarts-Tcsl>
     <Vue-Echarts-Tcsl specialId="4" chartType="target" theme='purple' title="test3"></Vue-Echarts-Tcsl>
   </div>
 </template>

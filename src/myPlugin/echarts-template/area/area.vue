@@ -5,6 +5,9 @@
 <script>
 import 'echarts/lib/chart/line';
 import minXinChart from '../mixin';
+import {Option as areablue} from './area-blue.js';
+import {Option as areaorange} from './area-orange.js';
+import {Option as areapurple}  from './area-purple.js';
 export default {
   mixins: [minXinChart],
   props: {
@@ -25,6 +28,11 @@ export default {
   data () {
     return {
     };
+  },
+  created () {
+    this.areablue = areablue;
+    this.areaorange = areaorange;
+    this.areapurple = areapurple;
   },
   methods: {
     resolveData (Option) {
