@@ -1,7 +1,7 @@
 {
   "name": "vue-echarts-tcsl",
   "description": "vue-echarts-tcsl",
-  "version": "1.0.3",
+  "version": "1.0.4-alpha",
   "author": "Brain",
   "license": "MIT",
   "private": false,
