@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import vEchartsTcsl from './myPlugin/echarts-template/index.js'
+import vEchartsTcsl from './index.js'
 import element from 'element-ui';
 Vue.use(vEchartsTcsl);
 Vue.use(element);

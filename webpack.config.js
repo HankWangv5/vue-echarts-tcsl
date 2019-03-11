@@ -4,7 +4,7 @@ var webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV;
 module.exports = {
   entry: {
-    bundle: NODE_ENV == 'development' ? './src/main.js' : './src/myPlugin/echarts-template/index.js'
+    bundle: NODE_ENV == 'development' ? './src/main.js' : './src/index.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
